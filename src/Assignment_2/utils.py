@@ -1,6 +1,7 @@
 import pyspark
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
+from pyspark.sql.types import *
 def create_SparkSession():
     spark=SparkSession.builder.appName("Assignment_2").getOrCreate()
     return spark
@@ -15,5 +16,5 @@ def pivot_Df(df,Product,Country,Amount):
 
 def unpivoit_Df(pivoitDf):
     unpivoitDf = pivoitDf.select('Product', expr(
-        "stack(6, 'India', India, 'Swe', Sweden, 'UK', UK,'China',China,'UAE',UAE,'USA',USA) as (Country, Amount)")).where("Amount is not null")
+        "stack(6, 'India', India, 'Sweden', Sweden, 'UK', UK,'China',China,'UAE',UAE,'USA',USA) as (Country, Amount)")).where("Amount is not null")
     return unpivoitDf
