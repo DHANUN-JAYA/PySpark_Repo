@@ -9,7 +9,7 @@ schema=StructType([
             StructField('firstname',StringType(),True),
             StructField('middlename',StringType(),True),
             StructField('lastname',StringType(),True)])),
-        StructField('date',LongType(),True),
+        StructField('dob',LongType(),True),
         StructField('gender',StringType(),True),
         StructField('salary',IntegerType(),True)
         ])
@@ -22,43 +22,42 @@ data=[
         (("Jen","Mary","Brown"),4101998,'F',10000)
     ]
 # Create Data Frame
-df= create_dataframe(spark , data, schema)
+employee_df= create_dataframe(spark , data, schema)
 
 #1.	Select firstname, lastname and salary from Dataframe.
-selecting(df,df.name.firstname,df.name.lastname,df.salary).show()
+select_df=selecting(employee_df,employee_df.name.firstname,employee_df.name.lastname,employee_df.salary)
 
 #2.	Add Country, department, and age column in the dataframe.
-df=add_column(df,"Country","India")
-df=add_column(df,"department","DataEngineer")
-df=add_column(df,"age",23)
-df.show()
+employee_df=add_column(employee_df,"Country","India")
+employee_df=add_column(employee_df,"department","DataEngineer")
+employee_df=add_column(employee_df,"age",23)
+
 
 #3.	Change the value of salary column
-df=Change_val_col(df,'salary',200)
-df.show()
-print("1-----------")
+employee_df=Change_val_col(employee_df,'salary',200)
+
+
 #4.	Change the data types of DOB and salary to String
-df=change_datatype(df,'date','string')
-print(df)
-df=change_datatype(df,'salary','string')
-df.printSchema()
-df.withColumn("New_name", col('date').cast('string')).show()
+employee_df=change_datatype(employee_df,'dob','string')
+
+employee_df=change_datatype(employee_df,'salary','string')
+
 
 #5.	Derive new column from salary column.
-df=new_column(df,'salary_added',500)
-df.show()
+employee_df=new_column(employee_df,'salary_added',500)
+employee_df.show()
 
-# #7.	Filter the name column whose salary in maximum.
-#
-# df=change_datatype(df,'salary','integer')
-# max_salary=maxSalary(df,'salary')
+#7.	Filter the name column whose salary in maximum.
+employee_df=change_datatype(employee_df,'salary','integer')
+max_salary=maxSalary(employee_df,'salary')
+max_salary.show()
+
+#8.	Drop the department and age column.
+employee_df=drop_column(employee_df,'department')
+employee_df=drop_column(employee_df,'age')
+
+# 9.List out distinct value of dob and salary
+employee_df_dist_dob=non_duplicate(employee_df,column='dob')
+employee_df_dist_salary=non_duplicate(employee_df,column=('salary'))
 
 
-# #8.	Drop the department and age column.
-# df=drop_column(df,'department')
-# df=drop_column(df,'age')
-# #9.	List out distinct value of dob and salary
-# df1=non_duplicate(df,column=('dob'))
-# df2=non_duplicate(df,column=('salary'))
-#
-#
