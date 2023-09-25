@@ -154,7 +154,7 @@ class MyTestCase(unittest.TestCase):
                 (2250,),
                 (1250,)]
         expected_employee_df_dist_salary = create_dataframe(self.spark, data, schema)
-        self.assertEqual(actual_employee_df_dist_salary.collect(), expected_employee_df_dist_salary .collect())
+        self.assertEqual(actual_employee_df_dist_salary.collect(), expected_employee_df_dist_salary.collect())
 
 
 if __name__ == '__main__':

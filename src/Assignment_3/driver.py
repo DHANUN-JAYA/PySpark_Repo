@@ -1,7 +1,8 @@
 import pyspark
-from pyspark.sql import SparkSession
+from pyspark.sql import SparkSession, window
 from pyspark.sql.types import *
-from pyspark.sql.functions import *
+import pyspark.sql.functions as F
+from pyspark.sql.window import Window
 from utils import *
 spark=create_SparkSession()
 schema=StructType([
@@ -19,15 +20,17 @@ data=[
     ("Jeff","Marketing",3000),
     ("Kumar","Marketing",2000)
 ]
-df=create_dataframe(spark,data,schema)
+employee_df=create_dataframe(spark,data,schema)
 
 # Select first row from each department group.
-df1=first_row(df).show()
+first_row_employee_df=first_row(employee_df)
 
-# Retrieve Employees who earns the highest salary.
-df2=highest_salary(df)
-df2.show()
+#3.	Create a Dataframe from Row and List of tuples.
+schema = Row("employee_name", "department", "salary")
+row_data_df=row_data_df(spark,data,schema)
 
-# Select the highest, lowest, average, and total salary for each department group.
-df3=totalsal_avg_high_low(df)
-df3.show()
+# 5 Retrieve Employees who earns the highest salary.
+max_salary_employee_df=highest_salary(employee_df)
+
+# 6 Select the highest, lowest, average, and total salary for each department group.
+col_employee_df=totalsal_avg_high_low(employee_df)
