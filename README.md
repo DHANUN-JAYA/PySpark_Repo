@@ -3,7 +3,7 @@ PySpark_Assignment:
 Question_1:
 •	Imported SparkSession from pyspark.sql lib and imported all requried lib
 •	Created a function to create SparkSession (create_session())
-•	schema and data are defined in the driver file 
+-	schema and data are defined in the driver file 
 •	Create_datafrme fun is called to create a employee_dataframe writen in the utils file
 #1.	Select firstname, lastname and salary from Dataframe.
 •	selecting function is called with parametres selecting(firstname, lastname salary)
