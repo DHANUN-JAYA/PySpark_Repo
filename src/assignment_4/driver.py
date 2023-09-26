@@ -23,7 +23,7 @@ schema_1 = StructType([
     StructField("ProductNumber",IntegerType(),True)
 ])
 
-#data for dataDF_2
+#data for  dataDF_2
 dataDF2 = [
     (150711, 123456, 'EN',456789,'2021-12-27T08:20:29.842+0000', 1),
     (150439, 234567,'UK', 345678,'2021-12-27T08:21:14.645+0000',2),

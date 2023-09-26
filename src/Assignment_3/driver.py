@@ -32,5 +32,5 @@ row_data_df=row_data_df(spark,data,schema)
 # 5 Retrieve Employees who earns the highest salary.
 max_salary_employee_df=highest_salary(employee_df)
 
-# 6 Select the highest, lowest, average, and total salary for each department group.
+# 6 Select the  highest, lowest, average, and total salary for each department group.
 col_employee_df=totalsal_avg_high_low(employee_df)

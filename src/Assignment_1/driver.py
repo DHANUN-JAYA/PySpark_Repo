@@ -43,7 +43,7 @@ employee_df=change_datatype(employee_df,'dob','string')
 employee_df=change_datatype(employee_df,'salary','string')
 
 
-#5.	Derive new column from salary column.
+#5.	Derive new column  from salary column.
 employee_df=new_column(employee_df,'salary_added',500)
 employee_df.show()
 

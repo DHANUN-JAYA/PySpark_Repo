@@ -20,7 +20,7 @@ data=[
 ]
 df=create_dataframe(spark,data,schema)
 df.show()
-#11.Find total amount exported to each country of each product.
+#11.Find total amount exported  to each country of each product.
 pivoitDf=pivot_Df(df,'Product','Country','Amount')
 pivoitDf.show()
 #12.Perform unpivot function on output of question 2.
