@@ -8,9 +8,9 @@ Question_1:
 1.	Select firstname, lastname and salary from Dataframe.
 -	selecting function is called with parametres selecting(firstname, lastname salary)
 2.	Add Country, department, and age column in the dataframe.
--	add_column function
+-	add_column function() 
 3.	Change the value of salary column
--	Change_val_col function
+-	Change_val_col function()
 4.	Change the data types of DOB and salary to String
 - change_datatype()
 5.	Derive new column from salary column.
@@ -21,4 +21,7 @@ Question_1:
 - drop_column()
 9.List out distinct value of dob and salary
 -	non_duplicate()
+
+Question_2:
+
 
